@@ -23,16 +23,16 @@ public class queue <T>{
         this.size = 0;
     }
     public queue(T data) {
-        insertLast(data);
+        insertlast(data);
     }
     
-    public Object getFirst() {
-        return this.first.getData();
+    public Object getfirst() {
+        return this.first.getdata();
     }
-    public node getLast() {
+    public node getlast() {
         return this.last;
     }
-    public int getSize() {
+    public int getsize() {
         return this.size;
     }
     
@@ -46,34 +46,34 @@ public class queue <T>{
         this.size = size;
     }
     //Methods
-    public void insertLast(T data) {
+    public void insertlast(T data) {
         node node = new node(data);
-        if(isEmpty()) {
+        if(isempty()) {
             setfirst(node); 
             setlast(node); 
         } else {
-            node.setNext(last);
+            node.setnext(last);
             setlast(node); 
         } ++this.size;
     }
-    public void deleteFirst(){
+    public void deletefirst(){
         node t;
-        if (!isEmpty()){
+        if (!isempty()){
            t = last;
-           while (t.getNext() != first) {
-               t = t.getNext(); 
+           while (t.getnext() != first) {
+               t = t.getnext(); 
            }
-           t.setNext(null);
+           t.setnext(null);
            setfirst(t);
            --this.size;
         } else {
             System.out.print("La lista está vacía");
         }
     }
-    public boolean isEmpty(){
+    public boolean isempty(){
         return this.first == null;
     }
-    public void setEmpty(){
+    public void setempty(){
         setfirst(null); 
         setlast(null); 
         setsize(0); 

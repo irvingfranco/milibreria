@@ -27,22 +27,22 @@ public class nodedoublelist<T> {
         this.next = null;
         this.prev = null;
     }
-    public T getData(){
+    public T getdata(){
         return this.data;
     }
-    public nodedoublelist getNext() {
+    public nodedoublelist getnext() {
         return next;
     }
-    public nodedoublelist getPrev() {
+    public nodedoublelist getprev() {
         return prev;
     }
-    public void setData(T d){
+    public void setdata(T d){
         this.data = d;
     }
-    public void setNext(nodedoublelist next) {
+    public void setnext(nodedoublelist next) {
         this.next = next;
     }
-    public void setPrev(nodedoublelist prev) {
+    public void setprev(nodedoublelist prev) {
         this.prev = prev;
     }
 

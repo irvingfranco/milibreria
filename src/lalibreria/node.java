@@ -26,16 +26,16 @@ public class node <T> {
         this.data = data; //Inicializamos en que data es igual a data.
         this.next = null;}
     
-    public T getData() {
+    public T getdata() {
         return this.data;
     }
-    public node getNext() {
+    public node getnext() {
         return this.next;
     }
-    public void setData(T data) {
+    public void setdata(T data) {
         this.data = data;
     }
-    public void setNext(node next) {
+    public void setnext(node next) {
         this.next = next;
     } 
 }

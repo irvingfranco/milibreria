@@ -21,39 +21,39 @@ public class stackclass <T> {
         this.size = 0;
     }
    
-    public node getTop(){
+    public node gettop(){
         return this.top;
     }
   
-    public int getSize(){
+    public int getsize(){
         return this.size;
     }
 
-    public void setTop(node top) {
+    public void settop(node top) {
         this.top = top;
     }
-    public void setSize(int size) {
+    public void setsize(int size) {
         this.size = size;
     }    
-    public boolean isEmpty(){
+    public boolean isempty(){
         return this.top == null;
     }
    
     public void push (T data) {
         node node = new node (data);
-        if (isEmpty()) { 
-            setTop(node);
+        if (isempty()) { 
+            settop(node);
               
         } else { 
-            node.setNext(top);
-            setTop(node);
+            node.setnext(top);
+            settop(node);
                 
         } ++size;
     }
     
     public void pop() {
-        if (!isEmpty()) {
-            setTop(top.getNext());
+        if (!isempty()) {
+            settop(top.getnext());
                
             --size;
         } else { 
@@ -62,20 +62,20 @@ public class stackclass <T> {
     }
    
     public void empty(){
-        setTop(null);
+        settop(null);
            
-        setSize(0);
+        setsize(0);
             
     }
     
-    public void showStack() {
-        if (!isEmpty()){
+    public void showstack() {
+        if (!isempty()){
             node t = top;
             do {
-                System.out.println(t.getData());
+                System.out.println(t.getdata());
                 System.out.println("|");
                 System.out.println("V");
-                t = t.getNext();
+                t = t.getnext();
             } while(t != null);
             System.out.println("☠");
         }

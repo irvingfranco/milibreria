@@ -16,71 +16,71 @@ public class doublelnklist <T>{
     nodedoublelist last;
     //Methods
     //Getters
-    public nodedoublelist getFirst() {
+    public nodedoublelist getfirst() {
         return first;
     }
-    public nodedoublelist getLast() {
+    public nodedoublelist getlast() {
         return last;
     }
     //Setters
-    public void setFirst(nodedoublelist first) {
+    public void setfirst(nodedoublelist first) {
         this.first = first;
     }
-    public void setLast(nodedoublelist last) {
+    public void setlast(nodedoublelist last) {
         this.last = last;
     }
     
-    public void insertFirst(T data){
+    public void insertfirst(T data){
         nodedoublelist node = new nodedoublelist(data); 
-        if(isEmpty()){
-            setFirst(node);
+        if(isempty()){
+            setfirst(node);
               
-            setLast(node);
+            setlast(node);
                 
         } else { 
-            node.setNext(first);
+            node.setnext(first);
                
-            first.setPrev(node);
+            first.setprev(node);
                
-            setFirst(node);            
+            setfirst(node);            
                
         }
     }
    
-    public void insertLast(T data){
+    public void insertlast(T data){
         nodedoublelist node = new nodedoublelist(data); 
-        if(isEmpty()){ 
-            setFirst(node);
+        if(isempty()){ 
+            setfirst(node);
                
-            setLast(node);
+            setlast(node);
                 
         } else { 
-            node.setPrev(last);
+            node.setprev(last);
               
-            last.setNext(node);
+            last.setnext(node);
                 
-            setLast(node);            
+            setlast(node);            
                
         }
     }
     
-    private boolean isEmpty(){
+    private boolean isempty(){
         return first == null && last == null;
     }
     
-    public nodedoublelist searchNode(T data){
+    public nodedoublelist searchnode(T data){
         nodedoublelist t;
-        if (isEmpty()){ 
+        if (isempty()){ 
             System.out.println("La lista está vacía."); 
             return null;
         } else { 
             t = first; 
-            while (!t.getData().equals(data) && t != last){
+            while (!t.getdata().equals(data) && t != last){
                
-                t = t.getNext();
+                t = t.getnext();
                     
             } 
-            if (t.getData().equals(data)){
+            if (t.getdata().equals(data)){
               
                 System.out.println("El nodo solicitado si se encuentra dentro de la lista."); 
                 return t;
@@ -92,51 +92,51 @@ public class doublelnklist <T>{
         }
     }
    
-     public boolean eNode(T data){
-        nodedoublelist t = searchNode(data);
+     public boolean enode(T data){
+        nodedoublelist t = searchnode(data);
         if (t == null) {
             System.out.println("No se encontró el nodo."); 
             return false;
         } else {
             if (t == first) {
                
-                    deleteFirst(); 
+                    deletefirst(); 
             } else if (t == last) {
                 deleteLast(); 
             } else {
-                t.getPrev().setNext(t.getNext());
+                t.getprev().setnext(t.getnext());
                    
-                t.getNext().setPrev(t.getPrev());
+                t.getnext().setprev(t.getprev());
                    
             } return true;
         }
     }
     
-    public void deleteFirst(){
+    public void deletefirst(){
        
-        setFirst(first.getNext());
+        setfirst(first.getnext());
             
-        first.setPrev(null);
+        first.setprev(null);
             
     }
   
     public void deleteLast(){
         
-        setLast(last.getPrev());
+        setlast(last.getprev());
             
-        last.setNext(null);
+        last.setnext(null);
 
     }
  
     public void showList(){
-        if (!isEmpty()){ 
+        if (!isempty()){ 
             nodedoublelist t; 
             t = first; 
             System.out.print("☠<=>"); 
             while(t != null){
-                System.out.print("[|"+t.getData()+"|]<=>");
+                System.out.print("[|"+t.getdata()+"|]<=>");
                    
-                t = t.getNext();
+                t = t.getnext();
                    
             } 
             System.out.println("☠"); 
@@ -145,15 +145,15 @@ public class doublelnklist <T>{
         } 
     }
     
-    public void showListRever(){
-        if (!isEmpty()){ 
+    public void showlistrever(){
+        if (!isempty()){ 
             nodedoublelist t; 
             t = (nodedoublelist) last; 
             System.out.print("☠<=>"); 
             while(t != null){ 
-                System.out.print("[|"+t.getData()+"|]<=>");
+                System.out.print("[|"+t.getdata()+"|]<=>");
                    
-                t = t.getPrev();
+                t = t.getprev();
                   
             }
             System.out.println("☠");

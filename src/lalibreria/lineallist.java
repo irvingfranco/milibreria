@@ -15,54 +15,54 @@ public class lineallist <T> {
     private node first; 
     private node last; 
     
-    public node getFirst() {
+    public node getfirst() {
         return first;
     }
-    public node getLast() {
+    public node getlast() {
         return last;
     }
     //Setters
-    public void setFirst(node first) {
+    public void setfirst(node first) {
         this.first = first;
     }
-    public void setLast(node last) {
+    public void setlast(node last) {
         this.last = last;
     }
     
-    public void insertFirst(T n){
+    public void insertfirst(T n){
         node node = new node(n); 
         
-        if(isEmpty()){ 
-            setFirst(node); 
+        if(isempty()){ 
+            setfirst(node); 
                 
-            setLast(node); 
+            setlast(node); 
                
         } else { 
-            node.setNext(first); 
+            node.setnext(first); 
               
-            setFirst(node);
+            setfirst(node);
              
         }
     }
    
-    public void insertLast(T n){
+    public void insertlast(T n){
         node node = new node(n); 
     
-        if(isEmpty()){
-            setFirst(node);
+        if(isempty()){
+            setfirst(node);
               
-            setLast(node);
+            setlast(node);
                
         } else { 
-            getLast().setNext(node);
+            getlast().setnext(node);
             
-            setLast(node); 
+            setlast(node); 
              
         }
     }
     
-    public void deleteFirst(){
-         setFirst(first.getNext());
+    public void deletefirst(){
+         setfirst(first.getnext());
            
     }
   
@@ -78,32 +78,32 @@ public class lineallist <T> {
         prev.next = null;
     }
     
-    public void deleteLast(){
+    public void deletelast(){
         node t = first;
-        while (t.getNext().getNext() != null) {
+        while (t.getnext().getnext() != null) {
            
-            t = t.getNext();
+            t = t.getnext();
                
         }
-        setLast(t);
+        setlast(t);
             
-        getLast().setNext(null);
+        getlast().setnext(null);
             
     }
     
-    private boolean isEmpty(){
+    private boolean isempty(){
         return first == null;
     }
    
-    public void showList(){
-        if (!isEmpty()){
+    public void showlist(){
+        if (!isempty()){
             node t;
             t = first;
             System.out.print("->");
             while (t != null) {
-                System.out.print("["+t.getData()+"|]->");
+                System.out.print("["+t.getdata()+"|]->");
                    
-                t = t.getNext();
+                t = t.getnext();
                     
             }
             System.out.println("☠");
@@ -112,30 +112,30 @@ public class lineallist <T> {
         }
     }
     
-    public boolean eNode(T data){
-        if (isEmpty()){ 
+    public boolean enode(T data){
+        if (isempty()){ 
             System.out.println("La lista está vacía.");
             return false;
         } else { 
             node t, t2;
             t = first; 
             t2 = null;
-            if(getFirst().getData().equals(data)){
+            if(getfirst().getdata().equals(data)){
                 
-                deleteFirst();
+                deletefirst();
                 return true;
-            } else if(getLast().getData().equals(data)){
+            } else if(getlast().getdata().equals(data)){
                 
-                deleteLast();
+                deletelast();
                 return true;
             } else {
-                while (t.getNext()!=null && t.getNext().getData()!=data && !data.equals(t.getNext().getData())/*!data.equals(t.data) && t != null && t.data != data*/) { //Mientras que no encuentre el dato o no llegue al final de la lista, recorre la lista.
+                while (t.getnext()!=null && t.getnext().getdata()!=data && !data.equals(t.getnext().getdata())) { 
                    
-                    t = t.getNext(); 
+                    t = t.getnext(); 
                        
                 }
-                if (t.getNext()!=null && t.getNext().getData().equals(data)) {
-                    t.setNext(t.getNext().getNext());
+                if (t.getnext()!=null && t.getnext().getdata().equals(data)) {
+                    t.setnext(t.getnext().getnext());
                     return true;
                 }
                 System.out.println("No se encontró en la lista.");

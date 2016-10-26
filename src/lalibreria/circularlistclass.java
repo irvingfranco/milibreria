@@ -19,65 +19,65 @@ public class circularlistclass <T> {
         pivot = null;
     }
     
-    public node getPivot() {
+    public node getpivot() {
         return pivot;
     }
     
-    public void setPivot(node pivot) {
+    public void setpivot(node pivot) {
         this.pivot = pivot;
     }
    
     public void insert(T d){
         node node = new node(d); 
-        if(!isEmpty()){ 
+        if(!isempty()){ 
            
-            node.setNext(pivot);
+            node.setnext(pivot);
                
-            findLast().setNext(node);
+            findlast().setnext(node);
                
-            setPivot(node);
+            setpivot(node);
                 
         } else { 
-            setPivot(node);
+            setpivot(node);
               
-            node.setNext(pivot);
+            node.setnext(pivot);
                 
         }
     }
     
-    public node findLast(){
+    public node findlast(){
         node t = pivot;
         do{ 
-            t = t.getNext();
+            t = t.getnext();
                 
-        } while (t.getNext() != pivot);
+        } while (t.getnext() != pivot);
            
         return t;
     }
    
-    private boolean isEmpty(){
+    private boolean isempty(){
         return pivot == null;
     }
   
-    public node searchNode(T data){
-        if (isEmpty()){ 
+    public node searchnode(T data){
+        if (isempty()){ 
             System.out.println("La lista está vacía."); 
             return null;
         } else { 
             node t; 
             t = pivot; 
-            if (getPivot().getData().equals(data)) {
+            if (getpivot().getdata().equals(data)) {
                
                 return t;
             } else {
-                t = t.getNext();
+                t = t.getnext();
                     
-                while (!t.getData().equals(data) && t != pivot){
+                while (!t.getdata().equals(data) && t != pivot){
                    
-                    t = t.getNext();
+                    t = t.getnext();
                        
                 }
-                if (t.getData().equals(data)) {
+                if (t.getdata().equals(data)) {
                     
                     System.out.println("El nodo solicitado si se encuentra dentro de la lista."); 
                     return t;
@@ -90,48 +90,48 @@ public class circularlistclass <T> {
         }
     }
   
-    public boolean deleteNode(T data){
-        node t = searchNode(data); 
+    public boolean deletenode(T data){
+        node t = searchnode(data); 
         node tt = t; 
         if (t == null) { 
             System.out.println("No se encontró el nodo.");
             return false;
         } else { 
             if (t == pivot) { 
-                findLast().setNext(t.getNext());
+                findlast().setnext(t.getnext());
                    
-                setPivot(t.getNext());
+                setpivot(t.getnext());
                     
-                t.setNext(null);
+                t.setnext(null);
                    
             } else { 
                 do {
-                    tt = tt.getNext();
+                    tt = tt.getnext();
                        
-                } while (tt.getNext() != t);
+                } while (tt.getnext() != t);
                     
-                tt.setNext(t.getNext());
+                tt.setnext(t.getnext());
 
-                t.setNext(null);
+                t.setnext(null);
                  
             } return true;
         }
     }
    
-    public void showList(){
-        if (isEmpty()){ 
+    public void showlist(){
+        if (isempty()){ 
             System.out.println("La lista está vacía");
         } else { 
             node t; 
             t = pivot; 
             System.out.print("->"); 
             do { 
-                System.out.print("["+t.getData()+"|]->");
-                t = t.getNext();
+                System.out.print("["+t.getdata()+"|]->");
+                t = t.getnext();
                     
-            } while (t.getNext() != pivot.getNext());
+            } while (t.getnext() != pivot.getnext());
                 
-            System.out.println(/*"☠"*/); 
+            System.out.println("☠"); 
         }
     }
 }
