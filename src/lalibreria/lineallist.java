@@ -91,7 +91,7 @@ public class lineallist <T> {
             
     }
     
-    private boolean isempty(){
+    public boolean isempty(){
         return first == null;
     }
    
